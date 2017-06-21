@@ -1,0 +1,14 @@
+# cd /etc/udev/rules.d/
+# gedit 60-persistent-serial.rules
+# This rules file can map the Arduino serial and Launchpad serial to fixed "ttyACM001" and "ttyACM002" respectively when they were added.
+
+ACTION!="add", GOTO="persistent_serial_end"
+SUBSYSTEM!="tty", GOTO="persistent_serial_end"
+KERNEL!="ttyACM[0-9]*", GOTO="persistent_serial_end"
+
+# This is old 11.10 style: IMPORT="usb_id --export %p"
+IMPORT{builtin}="path_id"
+ENV{ID_SERIAL}=="Arduino__www.arduino.cc__0042_9543731323535140A021"     , SYMLINK="arduino"        , SYMLINK+="ttyACM001" ,MODE="0666",OWNER="pc"
+ENV{ID_SERIAL}=="Texas_Instruments_In-Circuit_Debug_Interface_0E20E115"  , SYMLINK="launchpad"      , SYMLINK+="ttyACM002" ,MODE="0666", OWNER="pc"
+
+LABEL="persistent_serial_end"
