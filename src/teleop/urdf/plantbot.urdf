@@ -1,0 +1,113 @@
+<?xml version="1.0"?>  
+<robot name="plantbot">  
+
+  <link name="base_link">  
+    <visual>  
+      <geometry>  
+        <cylinder  length="0.289" radius="0.125"/>  
+      </geometry>  
+      <origin rpy="0 0 1.57075" xyz="0 0 0.1795"/> 
+      <material name="blue">  
+        <color rgba="0 0 .8 1"/>  
+      </material>  
+    </visual>  
+  </link>  
+  
+  <link name="front_wheel">  
+    <visual>  
+      <geometry>  
+        <cylinder length=".02" radius="0.0325"/>  
+      </geometry>  
+      <material name="black">  
+        <color rgba="0 0 0 1"/>  
+      </material>  
+    </visual>  
+  </link>  
+  
+  <joint name="front_wheel_joint" type="continuous">  
+    <axis xyz="0 0 1"/>  
+    <parent link="base_link"/>  
+    <child link="front_wheel"/>  
+    <origin rpy="0 1.57075 0" xyz="-0.01 0.0901 0"/>  
+    <limit effort="10" velocity="1"/>  
+    <joint_properties damping="0.3" friction="0.3"/>  
+  </joint>  
+  
+  <link name="back_wheel">  
+    <visual>  
+      <geometry>  
+        <cylinder length=".02" radius="0.0325"/>  
+      </geometry>  
+      <material name="black">  
+        <color rgba="0 0 0 1"/>  
+      </material>  
+    </visual>  
+  </link> 
+
+  <joint name="back_wheel_joint" type="continuous">  
+    <axis xyz="0 0 1"/>  
+    <parent link="base_link"/>  
+    <child link="back_wheel"/>  
+    <origin rpy="0 1.57075 0" xyz="-0.01 -0.0901 0"/>  
+    <limit effort="10" velocity="1"/>  
+    <joint_properties damping="0.3" friction="0.3"/>  
+  </joint>  
+  
+  <link name="left_wheel">  
+    <visual>  
+      <geometry>  
+        <cylinder length=".02" radius="0.0325"/>  
+      </geometry>  
+      <material name="black">  
+        <color rgba="0 0 0 1"/>  
+      </material>  
+    </visual>  
+  </link>  
+  
+  <joint name="left_wheel_joint" type="continuous">  
+    <axis xyz="0 0 1"/>  
+    <parent link="base_link"/>  
+    <child link="left_wheel"/>  
+    <origin rpy="0 1.57075 0" xyz="-0.1307 0 0"/>  
+    <limit effort="10" velocity="1"/>  
+    <joint_properties damping="0.3" friction="0.3"/>  
+  </joint>  
+  
+  <link name="right_wheel">  
+    <visual>  
+      <geometry>  
+        <cylinder length=".02" radius="0.0325"/>  
+      </geometry>  
+      <material name="black">  
+        <color rgba="0 0 0 1"/>  
+      </material>  
+    </visual>  
+  </link>  
+  
+  <joint name="right_wheel_joint" type="continuous">  
+    <axis xyz="0 0 1"/>  
+    <parent link="base_link"/>  
+    <child link="right_wheel"/>  
+    <origin rpy="0 1.57075 0" xyz="0.1107 0 0"/>  
+    <limit effort="10" velocity="1"/>  
+    <joint_properties damping="0.3" friction="0.3"/>  
+  </joint>  
+  
+  <link name="laser">  
+    <visual>  
+      <geometry>  
+        <cylinder length="0.02" radius="0.03"/>  
+      </geometry>  
+      <material name="white">  
+          <color rgba="1 1 1 1"/>  
+      </material>  
+    </visual>  
+  </link>  
+  
+  <joint name="scan" type="continuous">  
+    <parent link="base_link"/>  
+    <child link="laser"/>  
+    <origin xyz="0 0 0.334"/>  
+  </joint>  
+  
+</robot>  
