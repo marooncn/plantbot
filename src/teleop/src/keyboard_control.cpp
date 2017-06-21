@@ -29,7 +29,7 @@ class TeleopRobot
     ros::NodeHandle n_private("~");
   }
 
-  ~TeleopRobot() {}
+  ~TeleopRobot() {}     //析构函数，用于释放对象使用的资源，销毁对象的非static数据成员
   void keyboardLoop();
 };
 
@@ -38,7 +38,9 @@ struct termios cooked, raw;
   
 void quit(int sig)
 {
-  tcsetattr(kfd, TCSANOW, &cooked);
+  tcsetattr(kfd, TCSANOW, &cooked);   /* 头文件为,#include <termios.h>, 用于设置终端参数,函数格式为：
+int tcsetattr(int fd, int optional_actions, const struct termios *termios_p); 参数fd为终端的文件描述符，0为标准输入，1为标准输出，
+2为标准错误；optional_actions取值TCSANOW表示不等数据传输完毕就立即改变属性；返回的结果保存在termios结构体中。  */
   exit(0);
 }
 
@@ -48,7 +50,8 @@ int main(int argc, char ** argv)
   TeleopRobot tpk;
   tpk.init();
 
-  signal(SIGINT, quit);
+  signal(SIGINT, quit);  /* 头文件为#include <signal.h>，Signals are generated when an event occurs that requires attention. It can be considered as a software version of a hardware interrupt. 
+SIGINT – interrupt (i.e., Ctrl-C).表示程序中断的话调用就quit函数。 */
   tpk.keyboardLoop();
 	
   return(0);
@@ -58,25 +61,34 @@ void TeleopRobot::keyboardLoop()
 {
   char c;
   bool dirty = false;
-
-  tcgetattr(kfd,&cooked);
-  memcpy(&raw, &cooked, sizeof(struct termios));
-  raw.c_lflag &= (ICANON | ECHO);
-  raw.c_cc[VEOL] = 1;
+  // get the console in raw mode
+  tcgetattr(kfd,&cooked);  /* 头文件为,#include <termios.h>,用于获取终端的相关参数,函数格式为：
+int tcgetattr(int fd, struct termios *termios_p); 参数fd为终端的文件描述符；返回的结果保存在termios结构体中。  */
+  memcpy(&raw, &cooked, sizeof(struct termios));  /*头文件为#include<string.h>，作用为由src指向地址为起始地址的连续n个字节的数
+  据复制到以dest指向地址为起始地址的空间内。函数格式为：void *memcpy(void*dest, const void *src, size_t n);  */
+  raw.c_lflag &= (ICANON | ECHO);  //c_lflag：termios结构体中的参数，为本地模式标志，控制终端编辑功能。ICANON:使用标准输入模式,ECHO:显示输入字符
+  // get the console in raw mode
+  raw.c_cc[VEOL] = 1; /*c_cc[NCCS]:termios结构体中的参数，控制字符，用于保存终端驱动程序中的特殊字符，如输入结束符等。
+  VEOL：附加的End-of-file字符，VEOF：End-of-file字符  */
   raw.c_cc[VEOF] = 2;
 
   tcsetattr(kfd, TCSANOW, &raw);
   
-  puts("Reading from keyboard");
+  puts("Reading from keyboard"); /* Prototype: int puts(const char *astring);
+                                      Header File: stdio.h (C) or cstdio (C++) */
   puts("---------------------");
   puts("Use 'W/S to forwad/back");
   puts("Use 'A/D' to left/right");
 
   while(ros::ok())
   {
-	if(read(kfd, &c, 1) < 0)
+// get the next event from the keyboard
+	if(read(kfd, &c, 1) < 0)  /* 头文件为 #include <unistd.h>，格式为：
+ssize_t read(int fd, void *buf, size_t count); 
+read() attempts to read up to count bytes from file descriptor fd into the buffer starting at buf, 
+read returns the number of BYTES transferred successfully, or -1 on error  */
 	{
-	  perror("read():");
+	  perror("read():"); //头文件：#include <stdio.h>,函数perror()用于抛出最近的一次系统错误信息，其原型为： void perror(char *string);
 	  exit(-1);
 	}
 
