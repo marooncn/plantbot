@@ -1,0 +1,12 @@
+<launch>
+
+ <node pkg="teleop" name="keyboard_control" type="keyboard_control" launch-prefix="xterm -e"/>
+ <node pkg="rosserial_python" name="serial_node" type="serial_node.py">
+    <param name="port"   type="string" value="/dev/ttyUSB0"  />
+ </node>
+ <node pkg="teleop" name="tele_converter" type="tele_converter" />
+ <node pkg="teleop" name="wheel_speed" type="wheel_speed.py"  launch-prefix="xterm -e"/>
+ <node pkg="teleop" name="sec_control" type="sec_control.py" launch-prefix="xterm -e"/>
+ <node pkg="teleop" name="launchpad_node" type="launchpad_node.py"/>
+ 
+</launch>
