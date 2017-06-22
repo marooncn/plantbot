@@ -8,16 +8,6 @@ Messenger Messenger_Handler = Messenger();
 
 ///////////////////////////////////////////////////////////////////////////////////////
 
-//return status after each device operation
-uint8_t devStatus;
-//Expected DMP paclet size
-uint16_t packetSize;
-//count of all bytes currently in FIFO
-uint16_t fifoCount;
-//FIFO storate buffer
-uint8_t fifoBuffer[64];
-
-
 #define OUTPUT_READABLE_QUATERNION
 
 
@@ -95,7 +85,7 @@ void setup()
   //Setup Motors
   SetupMotors();
   //Setup Ultrasonic
- // SetupUltrasonic();  
+  SetupUltrasonic();  
   //Setup Reset pins
   SetupReset();
   //Set up Messenger 
@@ -382,20 +372,6 @@ long microsecondsToCentimeters(long microseconds)
 return microseconds / 29 / 2;
 }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//Update battery function
-void Update_Battery()
-
-{
- battery_level = analogRead(PC_4); 
- 
- Serial.print("b");
- Serial.print("\t");
- Serial.print(battery_level);
- Serial.print("\n");
-
-}
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 //Motor running function
 
