@@ -1,7 +1,5 @@
 sec_control.py、pid_control.py分别是两个速度控制结点，其中sec_control.py采用速度分段控制法，所用电机驱动器的控制板Arduino可提供8位PWM波输出，
-即最多有2^8 = 256个速度段，在执行时可以先测量在运行地面环境的各PWM值对应的速度（test_speed.ino），然后在控制或导航过程中根据速度要求寻找对应的PWM输出，优点在于响应
-快、准确，缺点为开环不稳定、路面环境变化则需重新测量速度段。pid_control.py采用PID控制，系统闭环不易受干扰及环境变化影响，但是根据仿真及试验，当目标
-速度更新频率较快时，PID控制表现很不理想。因此，建议使用sec_control.py作为控制结点。
+即最多有2^8 = 256个速度段，在执行时可以先测量在运行地面环境的各PWM值对应的速度（test_speed.ino），然后在控制或导航过程中根据速度要求寻找对应的PWM输出，优点在于响应快、准确，缺点为开环不稳定、路面环境变化则需重新测量速度段。pid_control.py采用PID控制，系统闭环不易受干扰及环境变化影响，但是根据仿真及试验结果，当目标速度更新频率较快时（> 0.5HZ），PID控制表现很不理想。因此，建议使用sec_control.py作为控制结点。
 wheel_speed.py是速度分解结点，即把小车的速度命令分解成两个主动轮的速度要求来执行。launchpad_node.py是参考Learning robotics using python一书的
 同名程序，作用为将launchpad连接的数据通过串口传到ROS中，接收ROS的速度命令并执行。 所调用的串口管理程序为SerialDataGateway.py。这部分也可以借助
-ROS提供的rosserial_tivac自己编写launchpad与ROS的通信。
+ROS提供的rosserial_tivac直接在Launchapd的编译环境Energia中编写launchpad与ROS的通信程序。
