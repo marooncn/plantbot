@@ -113,7 +113,7 @@ class Sec(object):
     if self.r_enc > self.encoder_high_wrap and self.r_enc_prev < self.encoder_low_wrap:
       self.rwheel_number -= 1
     self.r_enc_prev = self.r_enc
-    self.rwheel_dis = (self.r_enc+self.rwheel_number*(self.encoder_max-self.encoder_min))/self.ticks_per_meter
+    self.rwheel_dis = (float(self.r_enc+self.rwheel_number*(self.encoder_max-self.encoder_min)))/self.ticks_per_meter
     self.r_speed()
 # Calculate the current speed according to the odom
   def l_speed(self):
