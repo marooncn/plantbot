@@ -3,7 +3,7 @@
 安装hector_slam：
 sudo apt-get install ros-indigo-hector-slam
 下载编译rplidar的驱动：
-cd ~/plantbot/src
+cd ~/plantbot/src 
 git clone https://github.com/robopeak/rplidar_ros.git
 在rplidar_ros/launch下新建hector_rplidar.launch
 编译：
