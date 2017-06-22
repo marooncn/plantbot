@@ -3,7 +3,7 @@
 #include <nav_msgs/Odometry.h>
 #include <geometry_msgs/Twist.h>
 #include <std_msgs/Float32.h>
-#define d 0.1  // d denotes the distance between both active wheels
+#define d 0.254  // d denotes the distance between both wheels
 
 double v_left=0.0;
 double v_right=0.0;
