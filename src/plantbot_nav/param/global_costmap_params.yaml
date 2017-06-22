@@ -1,5 +1,10 @@
 global_costmap:
   global_frame: /map
-  robot_base_frame: base_link
-  update_frequency: 5.0
-  static_map: false
+  robot_base_frame: base_link  
+  update_frequency: 1.0
+  transform_tolerance: 0.5
+  static_map: true    #if you want to run autonomous navigation while running SLAM. Then it's false. 
+  width:  50 
+  height: 50 
+  origin_x: -25
+  origin_y: -25
