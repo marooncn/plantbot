@@ -77,8 +77,9 @@ int tcgetattr(int fd, struct termios *termios_p); 参数fd为终端的文件描�
   puts("Reading from keyboard"); /* Prototype: int puts(const char *astring);
                                       Header File: stdio.h (C) or cstdio (C++) */
   puts("---------------------");
-  puts("Use 'W/S to forwad/back");
-  puts("Use 'A/D' to left/right");
+  puts("Use 'w/s to go forwad/back");
+  puts("Use 'a/d' to turn left/right");
+  puts("And use 'x' to stop");
 
   while(ros::ok())
   {
@@ -114,6 +115,11 @@ read returns the number of BYTES transferred successfully, or -1 on error  */
 	  cmd.data = 'd';
 	  dirty = true;
 	  break;
+         case KEYCODE_X:
+	  puts("stop"); 
+	  cmd.data = 'x';
+	  dirty = true;
+	  break;
 	}
 	if(dirty == true)
 	{
@@ -123,3 +129,4 @@ read returns the number of BYTES transferred successfully, or -1 on error  */
   }
   
 }
+
