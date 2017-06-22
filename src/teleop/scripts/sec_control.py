@@ -102,7 +102,8 @@ class Sec(object):
     if self.l_enc > self.encoder_high_wrap and self.l_enc_prev < self.encoder_low_wrap:
       self.lwheel_number -= 1
     self.l_enc_prev = self.l_enc
-    self.lwheel_dis = (float(self.l_enc+self.lwheel_number*(self.encoder_max-self.encoder_min)))/self.ticks_per_meter   #If not declare "float", the lwheel_dis's output will be integral and the lwheel_vel is often zero which is wrong. I waste much time here.
+    self.lwheel_dis = (float(self.l_enc+self.lwheel_number*(self.encoder_max-self.encoder_min)))/self.ticks_per_meter   
+    #If not declare "float", the lwheel_dis's output will be integral and the lwheel_vel is often zero which is wrong. I waste much time here.
     rospy.loginfo("The left wheel's current lwheel_dis is %f m." % self.lwheel_dis)
     self.l_speed()
   def r_distance(self, msg):
