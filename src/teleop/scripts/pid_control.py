@@ -143,4 +143,3 @@ class Pid(object):
 if __name__ == '__main__':
   do_pid = Pid()
   do_pid.loop()
-
