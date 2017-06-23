@@ -1,6 +1,6 @@
 让小车动起来的命令（底层ROS框架）是（插上launchpad）:
 roslaunch teleop teleop.launch 
-在试验过程中有时launchpad与串口的通信不稳定，通过命令
+在试验过程中有时launchpad与串口的通信不稳定，通过命令：
 rostopic echo /lwheel
 检查Launchpad向串口是否输出了编码器数值，如果没有输出则需要重新插拔launchpad，直到有输出为知。
 这个步骤调试好了就可以调试激光雷达绘图，对应命令是（再插上激光雷达）：
