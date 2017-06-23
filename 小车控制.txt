@@ -1,0 +1,19 @@
+让小车动起来的命令（底层ROS框架）是（插上launchpad）:
+roslaunch teleop teleop.launch 
+在试验过程中有时launchpad与串口的通信不稳定，通过命令
+rostopic echo /lwheel
+检查Launchpad向串口是否输出了编码器数值，如果没有输出则需要重新插拔launchpad，直到有输出为知。
+这个步骤调试好了就可以调试激光雷达绘图，对应命令是（再插上激光雷达）：
+roslaunch rplidar_ros hector_rplidar.launch model:='$(find teleop)/urdf/plantbot.urdf'
+下面命令可以将rviz中的绘图保存成包，方便我们录制rviz上的成图过程，准备开车时运行，结束开车后按ctr+c结束录制：
+roscd rplidar_ros
+cd bags
+rosbag record -a
+按动键盘使小车把当前环境的地图绘制出来，绘图完成后，保存环境地图为导航做准备：
+cd ~/plantbot/src/rplidar_ros/maps/
+rosrun map_server map_saver -f my_map
+最后就是导航了，命令为：
+roslaunch plantbot_nav  plantbot_configuration.launch
+roslaunch plantbot_nav move_base.launch
+roslaunch plantbot_nav  base_controller.launch
+运行命令后需要在rviz界面的地图信息设置小车移动的目标位姿，然后调试置其能够移动到目标位置。
