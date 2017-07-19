@@ -14,6 +14,7 @@
 #define KEYCODE_D 0x64
 #define KEYCODE_S 0x73
 #define KEYCODE_W 0x77
+#define KEYCODE_X 0x78
 
 class TeleopRobot
 {
