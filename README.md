@@ -7,7 +7,5 @@
 
 ## More Information 
 
-  Introduction:
-  https://pan.baidu.com/s/1c2CmWMk <br>
-  Video: 
-  https://v.qq.com/x/cover/u051901b6o1/u051901b6o1.html? <br>
+  Introduction: https://pan.baidu.com/s/1c2CmWMk <br>
+  Video: https://v.qq.com/x/cover/u051901b6o1/u051901b6o1.html <br>
