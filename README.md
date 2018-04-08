@@ -9,12 +9,13 @@
    ![](https://github.com/marooncn/plantbot/blob/master/image/material_object.png)
 ## software flowchat
    ![](https://github.com/marooncn/plantbot/blob/master/image/Plantbot.png)
-## underlying ROS framework
+## low-level control
    ![](https://github.com/marooncn/plantbot/blob/master/image/underlying_ros.png)
+   [low-level control](https://www.processon.com/view/link/590467b6e4b027506a44d961)
 ## More Information 
    * thesis: <br>
    [Plantbot: A New ROS-based Robot Platform for Fast Building and Developing](https://arxiv.org/submit/2221070/view)  <br>
-   * Video: <br>
+   * video: <br>
    [remote control](https://pan.baidu.com/s/1Fe6rH_Bb22K6dIa3u1QXJQ)<br>
    [obstacle avoidance](https://pan.baidu.com/s/1yQQse5tHGPSfzELwWx_T1w)<br>
    [SLAM](https://pan.baidu.com/s/1IhqRWxE4FQnFmS6PtCyGzQ)
