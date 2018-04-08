@@ -1,4 +1,4 @@
-# plantbot
+# Plantbot
     This is a project developed by Gao Yibo and me.
     We aim to design and make a differential drive robot that can realize SLAM and antonomous navigation with 
     the help of ROS. We call it plantbot, hoping it can take some tasks in the plant, such as fetching and  
@@ -12,7 +12,11 @@
 ## underlying ROS framework
    ![](https://github.com/marooncn/plantbot/blob/master/image/underlying_ros.png)
 ## More Information 
-   Introduction: https://pan.baidu.com/s/1c2CmWMk <br>
-   Video: https://v.qq.com/x/cover/u051901b6o1/u051901b6o1.html <br>
+   * thesis: <br>
+   [Plantbot: A New ROS-based Robot Platform for Fast Building and Developing](https://arxiv.org/submit/2221070/view)  <br>
+   * Video: <br>
+   [remote control](https://pan.baidu.com/s/1Fe6rH_Bb22K6dIa3u1QXJQ)<br>
+   [obstacle avoidance](https://pan.baidu.com/s/1yQQse5tHGPSfzELwWx_T1w)<br>
+   [SLAM](https://pan.baidu.com/s/1IhqRWxE4FQnFmS6PtCyGzQ)
 ## The similar project
    https://github.com/eborghi10/my_ROS_mobile_robot 
