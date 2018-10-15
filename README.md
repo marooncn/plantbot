@@ -14,7 +14,7 @@
    [low-level control](https://www.processon.com/view/link/590467b6e4b027506a44d961)
 ## More Information 
    * thesis: <br>
-   [Plantbot: A New ROS-based Robot Platform for Fast Building and Developing](https://arxiv.org/abs/1804.02687)  <br>
+   [Plantbot: A New ROS-based Robot Platform for Fast Building and Developing](https://github.com/marooncn/plantbot/blob/master/ICMA2018-164.pdf)  <br>
    * video: <br>
    [remote control](https://pan.baidu.com/s/1Fe6rH_Bb22K6dIa3u1QXJQ)<br>
    [obstacle avoidance](https://pan.baidu.com/s/1yQQse5tHGPSfzELwWx_T1w)<br>
