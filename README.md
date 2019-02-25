@@ -15,6 +15,8 @@
 ## More Information 
    * thesis: <br>
    [Plantbot: A New ROS-based Robot Platform for Fast Building and Developing](https://github.com/marooncn/plantbot/blob/master/ICMA2018-164.pdf)  <br>
+   Please cite this paper as:  <br>
+   > Ma L, Liu Y, Gao Y, et al. Plantbot: A New ROS-based Robot Platform for Fast Building and Developing[C]//2018 IEEE International Conference on Mechatronics and Automation (ICMA). IEEE, 2018: 930-935.
    * video: <br>
    [remote control](https://pan.baidu.com/s/1Fe6rH_Bb22K6dIa3u1QXJQ)<br>
    [obstacle avoidance](https://pan.baidu.com/s/1yQQse5tHGPSfzELwWx_T1w)<br>
